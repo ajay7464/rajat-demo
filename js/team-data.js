@@ -1,0 +1,68 @@
+window.teamMembers = [
+  {
+    name: 'Michael Daniel',
+    role: 'Co-Founder',
+    image: 'images/team/team-01.jpg',
+    socials: [
+      { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
+      { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
+      { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
+      { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
+    ]
+  },
+  {
+    name: 'Richard Edward',
+    role: 'Financial Lawyer',
+    image: 'images/team/team-02.jpg',
+    socials: [
+      { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
+      { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
+      { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
+      { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
+    ]
+  },
+  {
+    name: 'Eliana Ivy',
+    role: 'Family Lawyer',
+    image: 'images/team/team-03.jpg',
+    socials: [
+      { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
+      { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
+      { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
+      { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
+    ]
+  },
+  {
+    name: 'Bradley Cody',
+    role: 'Civil Lawyer',
+    image: 'images/team/team-04.jpg',
+    socials: [
+      { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
+      { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
+      { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
+      { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
+    ]
+  },
+  {
+    name: 'Catalina Sage',
+    role: 'Criminal Lawyer',
+    image: 'images/team/team-05.jpg',
+    socials: [
+      { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
+      { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
+      { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
+      { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
+    ]
+  },
+  {
+    name: 'Raelyn Esme',
+    role: 'General Lawyer',
+    image: 'images/team/team-06.jpg',
+    socials: [
+      { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
+      { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
+      { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
+      { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
+    ]
+  }
+];

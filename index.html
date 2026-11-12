@@ -1017,28 +1017,58 @@
 
       <!-- JS
          ============================================ -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
       <script src="js/team-data.js"></script>
       <script>
-         const teamMembers = window.teamMembers || [];
+         const teamImagesRow = document.getElementById('teamImagesRow');
+         const teamContentRow = document.getElementById('teamContentRow');
 
-         function renderTeamSocialLinks(socials) {
+         function renderTeamSocialLinks(socials = []) {
             return socials.map((social) => `
                <li class="pbmit-social-li pbmit-social-${social.name}">
-                  <a href="${social.url}" title="${social.name.charAt(0).toUpperCase() + social.name.slice(1)}" target="_blank">
-                     <span><i class="${social.icon}"></i></span>
+                  <a href="${social.url || '#'}" title="${(social.name || 'Social').charAt(0).toUpperCase() + (social.name || 'Social').slice(1)}" target="_blank">
+                     <span><i class="${social.icon || 'pbmit-base-icon-link'}"></i></span>
                   </a>
                </li>
             `).join('');
          }
 
-         const teamImagesRow = document.getElementById('teamImagesRow');
-         const teamContentRow = document.getElementById('teamContentRow');
+         function renderTeamMembers() {
+            const teamMembers = window.teamMembers || [];
 
-         if (teamImagesRow && teamContentRow) {
-            teamImagesRow.innerHTML = teamMembers.map((member) => `
-               <div class="col-md-12 col-lg-4">
-                  <div class="pbmit-team-style-1">
-                     <div class="pbminfotech-post-item">
+            if (teamImagesRow && teamContentRow) {
+               teamImagesRow.innerHTML = teamMembers.map((member) => `
+                  <div class="col-md-12 col-lg-4">
+                     <div class="pbmit-team-style-1">
+                        <div class="pbminfotech-post-item">
+                           <div class="pbmit-featured-img-wrapper">
+                              <div class="pbmit-featured-wrapper">
+                                 <img src="${member.image}" class="img-fluid" alt="${member.name}">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               `).join('');
+
+               teamContentRow.innerHTML = teamMembers.map((member) => `
+                  <div class="col-md-12 col-lg-4">
+                     <div class="pbminfotech-box-content">
+                        <div class="pbminfotech-box-content-inner">
+                           <h3 class="pbmit-team-title">
+                              <a href="team-member-details.html">${member.name}</a>
+                           </h3>
+                           <div class="pbminfotech-team-position">
+                              <div class="pbminfotech-box-team-position">${member.role}</div>
+                           </div>
+                           <div class="pbminfotech-social-box">
+                              <div class="pbminfotech-box-social-links">
+                                 <ul class="pbmit-social-links pbmit-team-social-links">
+                                    ${renderTeamSocialLinks(member.socials)}
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
                         <div class="pbmit-featured-img-wrapper">
                            <div class="pbmit-featured-wrapper">
                               <img src="${member.image}" class="img-fluid" alt="${member.name}">
@@ -1046,36 +1076,12 @@
                         </div>
                      </div>
                   </div>
-               </div>
-            `).join('');
-
-            teamContentRow.innerHTML = teamMembers.map((member) => `
-               <div class="col-md-12 col-lg-4">
-                  <div class="pbminfotech-box-content">
-                     <div class="pbminfotech-box-content-inner">
-                        <h3 class="pbmit-team-title">
-                           <a href="team-member-details.html">${member.name}</a>
-                        </h3>
-                        <div class="pbminfotech-team-position">
-                           <div class="pbminfotech-box-team-position">${member.role}</div>
-                        </div>
-                        <div class="pbminfotech-social-box">
-                           <div class="pbminfotech-box-social-links">
-                              <ul class="pbmit-social-links pbmit-team-social-links">
-                                 ${renderTeamSocialLinks(member.socials)}
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="pbmit-featured-img-wrapper">
-                        <div class="pbmit-featured-wrapper">
-                           <img src="${member.image}" class="img-fluid" alt="${member.name}">
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            `).join('');
+               `).join('');
+            }
          }
+
+         window.addEventListener('teamDataLoaded', renderTeamMembers);
+         renderTeamMembers();
       </script>
       <!-- jQuery JS -->
       <script src="js/jquery.min.js"></script>

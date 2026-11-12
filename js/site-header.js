@@ -100,7 +100,7 @@ if (target) {
                 <div class="d-flex align-items-center justify-content-between header-content">
                   <div class="site-branding pbmit-logo-area">
                     <h1 class="site-title">
-                      <a href="index-2.html">
+                      <a href="index.html">
                         <img class="logo-img" src="images/logo.svg" alt="attorly">
                       </a>
                     </h1>

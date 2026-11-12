@@ -627,49 +627,56 @@
 
            <!-- JS
          ============================================ -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
       <script src="js/team-data.js"></script>
       <script>
-         const teamMembers = window.teamMembers || [];
          const teamMembersWrapper = document.getElementById('teamMembersWrapper');
 
-         if (teamMembersWrapper) {
-            teamMembersWrapper.innerHTML = teamMembers.map((member) => `
-               <div class="swiper-slide">
-                  <article class="pbmit-team-style-2">
-                     <div class="pbminfotech-post-item">
-                        <div class="pbminfotech-team-image-box">
-                           <div class="pbminfotech-box-social-links">
-                              <ul class="pbmit-social-links pbmit-team-social-links">
-                                 ${member.socials.map((social) => `
-                                    <li class="pbmit-social-li pbmit-social-${social.name}">
-                                       <a href="${social.url}" title="${social.name.charAt(0).toUpperCase() + social.name.slice(1)}" target="_blank">
-                                          <span><i class="${social.icon}"></i></span>
-                                       </a>
-                                    </li>
-                                 `).join('')}
-                              </ul>
+         function renderTeamMembers() {
+            const teamMembers = window.teamMembers || [];
+
+            if (teamMembersWrapper) {
+               teamMembersWrapper.innerHTML = teamMembers.map((member) => `
+                  <div class="swiper-slide">
+                     <article class="pbmit-team-style-2">
+                        <div class="pbminfotech-post-item">
+                           <div class="pbminfotech-team-image-box">
+                              <div class="pbminfotech-box-social-links">
+                                 <ul class="pbmit-social-links pbmit-team-social-links">
+                                    ${(member.socials || []).map((social) => `
+                                       <li class="pbmit-social-li pbmit-social-${social.name}">
+                                          <a href="${social.url || '#'}" title="${(social.name || 'Social').charAt(0).toUpperCase() + (social.name || 'Social').slice(1)}" target="_blank">
+                                             <span><i class="${social.icon || 'pbmit-base-icon-link'}"></i></span>
+                                          </a>
+                                       </li>
+                                    `).join('')}
+                                 </ul>
+                              </div>
+                              <div class="pbmit-featured-img-wrapper">
+                                 <div class="pbmit-featured-wrapper">
+                                    <img src="${member.image}" class="img-fluid" alt="${member.name}">
+                                 </div>
+                              </div>
                            </div>
-                           <div class="pbmit-featured-img-wrapper">
-                              <div class="pbmit-featured-wrapper">
-                                 <img src="${member.image}" class="img-fluid" alt="${member.name}">
+                           <div class="pbminfotech-box-content">
+                              <div class="pbminfotech-box-content-inner">
+                                 <h3 class="pbmit-team-title">
+                                    <a href="team-member-details.html">${member.name}</a>
+                                 </h3>
+                                 <div class="pbminfotech-team-position">
+                                    <div class="pbminfotech-box-team-position">${member.role}</div>
+                                 </div>
                               </div>
                            </div>
                         </div>
-                        <div class="pbminfotech-box-content">
-                           <div class="pbminfotech-box-content-inner">
-                              <h3 class="pbmit-team-title">
-                                 <a href="team-member-details.html">${member.name}</a>
-                              </h3>
-                              <div class="pbminfotech-team-position">
-                                 <div class="pbminfotech-box-team-position">${member.role}</div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </article>
-               </div>
-            `).join('');
+                     </article>
+                  </div>
+               `).join('');
+            }
          }
+
+         window.addEventListener('teamDataLoaded', renderTeamMembers);
+         renderTeamMembers();
       </script>
       <script src="js/jquery.min.js"></script>
       <!-- Popper JS -->

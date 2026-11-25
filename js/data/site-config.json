@@ -1,0 +1,15 @@
+{
+  "brand": "Aarohan Law Chambers",
+  "titles": {
+    "index.html": "Home",
+    "about-us-light.html": "About Us",
+    "contact-us.html": "Contact Us",
+    "blog-classic.html": "Blog Classic",
+    "blog-grid.html": "Blog Grid View",
+    "blog-details.html": "Divorce in the UK today",
+    "portfolio-style-1.html": "Portfolio Style 1",
+    "portfolio-details.html": "Tax Consultancy",
+    "service-details.html": "International Law & Justice",
+    "team-member-details.html": "Team Member"
+  }
+}

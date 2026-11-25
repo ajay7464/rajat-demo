@@ -177,9 +177,11 @@
     const titleBarName = document.querySelector('.pbmit-tbar-title');
     if (titleBarName) titleBarName.textContent = member.name;
 
-    document.title = `${member.name} – Aarohan Law Chambers`;
+    const brandName = window.siteBrand || '';
+    document.title = brandName ? `${member.name} – ${brandName}` : member.name;
   }
 
   window.addEventListener('teamDataLoaded', renderTeamMembers);
+  window.addEventListener('siteConfigLoaded', renderTeamMembers);
   renderTeamMembers();
 })();

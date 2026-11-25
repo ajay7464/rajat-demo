@@ -1,18 +1,7 @@
 (function () {
-  const brand = 'Aarohan Law Chambers';
-
-  const titles = {
-    'index.html': 'Home',
-    'about-us-light.html': 'About Us light 2',
-    'contact-us.html': 'Contact Us',
-    'blog-classic.html': 'Blog Classic',
-    'blog-grid.html': 'Blog Grid View',
-    'blog-details.html': 'Divorce in the UK today',
-    'portfolio-style-1.html': 'Portfolio Style 1',
-    'portfolio-details.html': 'Tax Consultancy',
-    'service-details.html': 'International Law & Justice',
-    'team-member-details.html': 'Team Member'
-  };
+  const CONFIG_URL = 'js/data/site-config.json';
+  let brand = '';
+  let titles = {};
 
   function normalizePageName() {
     return (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
@@ -20,10 +9,14 @@
 
   function getPageTitle() {
     const params = new URLSearchParams(window.location.search);
-    const explicitTitle = params.get('title') || params.get('member') || params.get('name');
+    const explicitTitle = params.get('title') || params.get('member') || params.get('name') || params.get('sno');
 
     if (explicitTitle) {
-      return explicitTitle;
+      const member = (window.teamMembers || []).find((item) =>
+        String(item.sno) === String(explicitTitle) ||
+        item.name.toLowerCase() === String(explicitTitle).toLowerCase()
+      );
+      if (member) return member.name;
     }
 
     const pageName = normalizePageName();
@@ -35,7 +28,7 @@
       }
     }
 
-    return titles[pageName] || document.title || 'Aarohan Law Chambers';
+    return titles[pageName] || document.title || brand;
   }
 
   function setDocumentTitle() {
@@ -45,21 +38,24 @@
       : `${pageTitle} – ${brand}`;
   }
 
-  setDocumentTitle();
+  async function loadSiteConfig() {
+    try {
+      const response = await fetch(CONFIG_URL);
+      if (!response.ok) throw new Error('Unable to load site configuration');
+
+      const config = await response.json();
+      brand = config.brand || brand;
+      titles = config.titles || {};
+      window.siteBrand = brand;
+      setDocumentTitle();
+    } catch (error) {
+      console.warn('Site configuration failed to load.', error);
+      setDocumentTitle();
+    }
+  }
+
+  loadSiteConfig();
 
   window.addEventListener('DOMContentLoaded', setDocumentTitle);
-  window.addEventListener('teamDataLoaded', function (event) {
-    const params = new URLSearchParams(window.location.search);
-    const requestedName = params.get('member') || params.get('name');
-
-    if (normalizePageName() !== 'team-member-details.html' || !requestedName) return;
-
-    const member = (event.detail || window.teamMembers || []).find((item) =>
-      item.name.toLowerCase() === requestedName.toLowerCase()
-    );
-
-    if (member) {
-      document.title = `${member.name} – ${brand}`;
-    }
-  });
+  window.addEventListener('teamDataLoaded', setDocumentTitle);
 })();

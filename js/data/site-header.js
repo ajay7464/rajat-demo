@@ -1,3 +1,61 @@
+const SITE_CONFIG_URL = 'js/data/site-config.json';
+let SITE_BRAND = '';
+let SITE_TITLES = {};
+window.siteBrand = SITE_BRAND;
+
+function applyBrandName() {
+  document.querySelectorAll('[data-brand-name]').forEach((element) => {
+    element.textContent = SITE_BRAND;
+  });
+}
+
+function setPageTitle(title) {
+  const cleanTitle = String(title || '').trim();
+  if (!cleanTitle) return;
+  document.title = cleanTitle === SITE_BRAND || cleanTitle.endsWith(SITE_BRAND)
+    ? cleanTitle
+    : `${cleanTitle} – ${SITE_BRAND}`.replace(/ – $/, '');
+}
+
+async function loadSiteConfig() {
+  try {
+    const response = await fetch(SITE_CONFIG_URL);
+    if (!response.ok) throw new Error('Unable to load site configuration');
+
+    const config = await response.json();
+    SITE_BRAND = config.brand || '';
+    SITE_TITLES = config.titles || {};
+    window.siteBrand = SITE_BRAND;
+    applyBrandName();
+    window.dispatchEvent(new CustomEvent('siteConfigLoaded', { detail: config }));
+
+    const pageName = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    const params = new URLSearchParams(window.location.search);
+    const requestedTitle = params.get('title') || params.get('member') || params.get('name') || params.get('sno');
+
+    if (requestedTitle) {
+      const member = (window.teamMembers || []).find((item) =>
+        String(item.sno) === String(requestedTitle) ||
+        item.name.toLowerCase() === String(requestedTitle).toLowerCase()
+      );
+      setPageTitle(member ? member.name : requestedTitle);
+    } else if (pageName === 'team-member-details.html') {
+      const memberTitle = document.querySelector('.pbmit-team-title');
+      setPageTitle(memberTitle?.textContent.trim() || SITE_TITLES[pageName]);
+    } else {
+      setPageTitle(SITE_TITLES[pageName] || document.title);
+    }
+  } catch (error) {
+    console.warn('Site configuration failed to load.', error);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadSiteConfig);
+} else {
+  loadSiteConfig();
+}
+
 const target = document.querySelector('[data-site-header]');
 
 if (target) {
@@ -210,61 +268,6 @@ if (target) {
       </div>
     </header>
   `;
-
-  const pageTitleMap = {
-    'index.html': 'Home',
-    'about-us-light.html': 'About Us',
-    'contact-us.html': 'Contact Us',
-    'blog-classic.html': 'Blog Classic',
-    'blog-grid.html': 'Blog Grid View',
-    'blog-details.html': 'Divorce in the UK today',
-    'portfolio-style-1.html': 'Portfolio Style 1',
-    'portfolio-details.html': 'Tax Consultancy',
-    'service-details.html': 'International Law & Justice',
-    'team-member-details.html': 'Team Member'
-  };
-
-  const brandName = 'Aarohan Law Chambers';
-  const titleParams = new URLSearchParams(window.location.search);
-  const requestedTitle = titleParams.get('title') || titleParams.get('member') || titleParams.get('name');
-
-  function setPageTitle(title) {
-    const cleanTitle = String(title || '').trim();
-    if (!cleanTitle) return;
-    document.title = cleanTitle.endsWith(brandName) || cleanTitle.endsWith('Law Firm HTML Template')
-      ? cleanTitle
-      : `${cleanTitle} – ${brandName}`;
-  }
-
-  if (requestedTitle) {
-    setPageTitle(requestedTitle);
-  } else if (pageName === 'team-member-details.html') {
-    const teamTitle = document.querySelector('.pbmit-team-title');
-    setPageTitle(teamTitle ? teamTitle.textContent : pageTitleMap[pageName]);
-  } else {
-    setPageTitle(pageTitleMap[pageName]);
-  }
-
-  window.addEventListener('DOMContentLoaded', function () {
-    if (requestedTitle) {
-      setPageTitle(requestedTitle);
-      return;
-    }
-
-    const titleBarTitle = document.querySelector('.pbmit-tbar-title');
-    if (pageName === 'team-member-details.html') {
-      const teamTitle = document.querySelector('.pbmit-team-title');
-      setPageTitle(teamTitle ? teamTitle.textContent : (requestedTitle || titleBarTitle?.textContent || pageTitleMap[pageName]));
-      return;
-    }
-
-    if (titleBarTitle && titleBarTitle.textContent.trim()) {
-      setPageTitle(titleBarTitle.textContent);
-      return;
-    }
-
-    setPageTitle(pageTitleMap[pageName]);
-  });
 
   target.innerHTML = pageName === 'index.html' ? homeHeader : commonHeader;
 }

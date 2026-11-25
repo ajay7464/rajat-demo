@@ -1,74 +1,6 @@
 (function () {
-  const defaultTeamMembers = [
-    {
-      name: 'Michael Daniel',
-      role: 'Co-Founder',
-      image: 'images/team/team-01.jpg',
-      socials: [
-        { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
-        { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
-        { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
-        { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
-      ]
-    },
-    {
-      name: 'Richard Edward',
-      role: 'Financial Lawyer',
-      image: 'images/team/team-02.jpg',
-      socials: [
-        { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
-        { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
-        { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
-        { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
-      ]
-    },
-    {
-      name: 'Eliana Ivy',
-      role: 'Family Lawyer',
-      image: 'images/team/team-03.jpg',
-      socials: [
-        { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
-        { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
-        { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
-        { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
-      ]
-    },
-    {
-      name: 'Bradley Cody',
-      role: 'Civil Lawyer',
-      image: 'images/team/team-04.jpg',
-      socials: [
-        { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
-        { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
-        { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
-        { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
-      ]
-    },
-    {
-      name: 'Catalina Sage',
-      role: 'Criminal Lawyer',
-      image: 'images/team/team-05.jpg',
-      socials: [
-        { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
-        { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
-        { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
-        { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
-      ]
-    },
-    {
-      name: 'Raelyn Esme',
-      role: 'General Lawyer',
-      image: 'images/team/team-06.jpg',
-      socials: [
-        { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
-        { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
-        { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
-        { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
-      ]
-    }
-  ];
-
-  const GOOGLE_DRIVE_LINK = 'https://docs.google.com/spreadsheets/d/1SyXXqMb8WDMV2_zLAKgN63mCM4m7HqIIrQ9MmH09Vz0/edit?usp=sharing';
+  const TEAM_JSON_URL = 'js/data/team_members.json';
+  const GOOGLE_DRIVE_LINK = 'https://docs.google.com/spreadsheets/d/1D_s-kgEhZ_9YggPgRRYa4u4Iyn6xdu_ZJJnMnV7ux-A/edit?usp=sharing';
   const GOOGLE_SHEET_INDEX = 0;
 
   function normalizeKey(value) {
@@ -81,23 +13,6 @@
 
   function normalizeText(value) {
     return String(value ?? '').trim();
-  }
-
-  function getGoogleDriveDownloadUrl(link) {
-    if (!link) return null;
-
-    const value = link.trim();
-    const spreadsheetMatch = value.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
-    if (spreadsheetMatch) {
-      return `https://docs.google.com/spreadsheets/d/${spreadsheetMatch[1]}/export?format=xlsx`;
-    }
-
-    const driveFileMatch = value.match(/\/d\/([a-zA-Z0-9-_]+)/);
-    if (driveFileMatch) {
-      return `https://drive.google.com/uc?export=download&id=${driveFileMatch[1]}`;
-    }
-
-    return value;
   }
 
   function buildSocialItem(name, url, iconMap) {
@@ -161,31 +76,36 @@
           return '';
         };
 
+        const sno = getValue(['sno', 's_no', 'serial_no', 'serial_number', 'id']);
         const name = getValue(['name', 'full_name', 'member_name', 'team_member_name']);
         const role = getValue(['role', 'position', 'designation', 'title']);
         const image = getValue(['image', 'photo', 'profile_image', 'avatar', 'image_url']);
-
-        const rowByKey = {};
-        headers.forEach((header, index) => {
-          rowByKey[header] = row[index];
-        });
-
-        const socials = extractSocials(rowByKey, columnMap).filter(Boolean);
+        const client = getValue(['client']);
+        const phone = getValue(['phone', 'mobile', 'telephone']);
+        const email = getValue(['email', 'email_address']);
+        const personalInfo = getValue(['personal_info', 'personal_info_1', 'description', 'bio']);
+        const practiceArea = getValue(['practice_area', 'practice_area_percent']);
+        const successCase = getValue(['success_case', 'success_case_percent']);
 
         if (!name) {
           return null;
         }
 
         return {
+          sno: sno || '',
           name,
           role: role || 'Team Member',
           image: image || 'images/team/default-team.jpg',
-          socials: socials.length ? socials : [
-            { name: 'facebook', url: '#', icon: 'pbmit-base-icon-facebook-squared' },
-            { name: 'twitter', url: '#', icon: 'pbmit-base-icon-twitter' },
-            { name: 'instagram', url: '#', icon: 'pbmit-base-icon-instagram' },
-            { name: 'youtube', url: '#', icon: 'pbmit-base-icon-youtube-play' }
-          ]
+          client: client || '',
+          phone: phone || '',
+          email: email || '',
+          personal_info: personalInfo ? [personalInfo] : [],
+          skills: [
+            { label: 'PRACTICE AREA', percent: Number(practiceArea) || 80 },
+            { label: 'SUCCESS CASE', percent: Number(successCase) || 92 }
+          ],
+          education: [],
+          socials: extractSocials(row, columnMap).filter(Boolean)
         };
       })
       .filter(Boolean);
@@ -211,15 +131,11 @@
 
   async function loadFromGoogleDrive(link) {
     if (!link || link === 'PASTE_YOUR_GOOGLE_DRIVE_LINK_HERE') {
-      window.teamMembers = defaultTeamMembers;
-      window.dispatchEvent(new CustomEvent('teamDataLoaded', { detail: window.teamMembers }));
       return;
     }
 
     const downloadUrl = getGoogleDriveDownloadUrl(link);
     if (!downloadUrl) {
-      window.teamMembers = defaultTeamMembers;
-      window.dispatchEvent(new CustomEvent('teamDataLoaded', { detail: window.teamMembers }));
       return;
     }
 
@@ -242,27 +158,92 @@
       const arrayBuffer = await response.arrayBuffer();
       const workbook = XLSX.read(arrayBuffer, { type: 'array' });
       const parsedMembers = parseWorkbookToTeamMembers(workbook);
+      const jsonMembers = window.teamMembers || [];
+      const mergedMembers = parsedMembers.map((parsedMember) => {
+        const jsonMember = jsonMembers.find((item) =>
+          String(item.sno) === String(parsedMember.sno)
+        );
+        if (!jsonMember) return parsedMember;
 
-      window.teamMembers = parsedMembers.length ? parsedMembers : defaultTeamMembers;
+        return {
+          ...jsonMember,
+          ...parsedMember,
+          name: parsedMember.name || jsonMember.name,
+          role: parsedMember.role || jsonMember.role,
+          image: parsedMember.image || jsonMember.image,
+          client: parsedMember.client || jsonMember.client,
+          phone: parsedMember.phone || jsonMember.phone,
+          email: parsedMember.email || jsonMember.email,
+          personal_info: parsedMember.personal_info?.length ? parsedMember.personal_info : jsonMember.personal_info,
+          skills: (parsedMember.skills?.[0]?.percent && parsedMember.skills[0].percent !== 80)
+            ? parsedMember.skills
+            : jsonMember.skills,
+          education: jsonMember.education || [],
+          socials: parsedMember.socials.length ? parsedMember.socials : jsonMember.socials
+        };
+      });
+
+      window.teamMembers = mergedMembers.length ? mergedMembers : jsonMembers;
       window.dispatchEvent(new CustomEvent('teamDataLoaded', { detail: window.teamMembers }));
     } catch (error) {
-      console.warn('Google Drive team data failed to load. Using fallback team data.', error);
-      window.teamMembers = defaultTeamMembers;
-      window.dispatchEvent(new CustomEvent('teamDataLoaded', { detail: window.teamMembers }));
+      console.warn('Google Drive team data failed to load. JSON team data remains available.', error);
     }
+  }
+
+  async function loadTeamDataFromJson() {
+    try {
+      const response = await fetch(TEAM_JSON_URL);
+      if (!response.ok) {
+        throw new Error('Unable to load team JSON');
+      }
+
+      const members = await response.json();
+      if (Array.isArray(members) && members.length) {
+        window.teamMembers = members;
+        window.dispatchEvent(new CustomEvent('teamDataLoaded', { detail: members }));
+        return members;
+      }
+    } catch (error) {
+      console.warn('Team JSON failed to load.', error);
+    }
+
+    window.teamMembers = [];
+    window.dispatchEvent(new CustomEvent('teamDataLoaded', { detail: [] }));
+    return [];
+  }
+
+  function getGoogleDriveDownloadUrl(link) {
+    if (!link) return null;
+
+    const value = link.trim();
+    const spreadsheetMatch = value.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+    if (spreadsheetMatch) {
+      return `https://docs.google.com/spreadsheets/d/${spreadsheetMatch[1]}/export?format=xlsx`;
+    }
+
+    const driveFileMatch = value.match(/\/d\/([a-zA-Z0-9-_]+)/);
+    if (driveFileMatch) {
+      return `https://drive.google.com/uc?export=download&id=${driveFileMatch[1]}`;
+    }
+
+    return value;
   }
 
   window.googleDriveExcelLink = GOOGLE_DRIVE_LINK;
   window.googleDriveSheetIndex = GOOGLE_SHEET_INDEX;
-  window.teamMembers = defaultTeamMembers;
+  window.teamMembers = [];
   window.loadTeamMembersFromGoogleDrive = loadFromGoogleDrive;
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-      window.loadTeamMembersFromGoogleDrive(window.googleDriveExcelLink);
+    document.addEventListener('DOMContentLoaded', async function () {
+      await loadTeamDataFromJson();
+      await window.loadTeamMembersFromGoogleDrive(window.googleDriveExcelLink);
     });
   } else {
-    window.loadTeamMembersFromGoogleDrive(window.googleDriveExcelLink);
+    (async function () {
+      await loadTeamDataFromJson();
+      await window.loadTeamMembersFromGoogleDrive(window.googleDriveExcelLink);
+    })();
   }
 })();
 

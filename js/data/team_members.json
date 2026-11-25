@@ -1,0 +1,170 @@
+[
+  {
+    "sno": 1,
+    "name": "Michael Daniel",
+    "role": "Co-Founder",
+    "image": "images/team/team-01.jpg",
+    "client": "PBM Infotech",
+    "phone": "+ (123) 1800-567-8990",
+    "email": "michael.daniel@aarohanlaw.com",
+    "personal_info": [
+      "Michael Daniel is a co-founder who brings extensive experience in legal strategy and client advocacy.",
+      "He is known for practical counsel, clear communication, and building long-term relationships with clients."
+    ],
+    "skills": [
+      { "label": "PRACTICE AREA", "percent": 80 },
+      { "label": "SUCCESS CASE", "percent": 92 }
+    ],
+    "education": [
+      { "period": "2002-2005", "detail": "Bachelor of Laws" },
+      { "period": "2010-2012", "detail": "Master of Legal Studies" },
+      { "period": "2012-2019", "detail": "Senior Legal Practice" }
+    ],
+    "socials": [
+      { "name": "facebook", "url": "#", "icon": "pbmit-base-icon-facebook-squared" },
+      { "name": "twitter", "url": "#", "icon": "pbmit-base-icon-twitter" },
+      { "name": "instagram", "url": "#", "icon": "pbmit-base-icon-instagram" },
+      { "name": "youtube", "url": "#", "icon": "pbmit-base-icon-youtube-play" }
+    ]
+  },
+  {
+    "sno": 2,
+    "name": "Richard Edward",
+    "role": "Financial Lawyer",
+    "image": "images/team/team-02.jpg",
+    "client": "PBM Infotech",
+    "phone": "+ (123) 1800-567-8990",
+    "email": "richard.edward@aarohanlaw.com",
+    "personal_info": [
+      "Richard Edward advises clients on financial regulation, taxation, contracts, and commercial disputes.",
+      "His approach combines careful analysis with responsive and commercially focused legal guidance."
+    ],
+    "skills": [
+      { "label": "FINANCIAL LAW", "percent": 88 },
+      { "label": "SUCCESS CASE", "percent": 90 }
+    ],
+    "education": [
+      { "period": "2003-2006", "detail": "Bachelor of Laws" },
+      { "period": "2008-2010", "detail": "Master of Financial Law" },
+      { "period": "2010-2019", "detail": "Financial Litigation Practice" }
+    ],
+    "socials": [
+      { "name": "facebook", "url": "#", "icon": "pbmit-base-icon-facebook-squared" },
+      { "name": "twitter", "url": "#", "icon": "pbmit-base-icon-twitter" },
+      { "name": "instagram", "url": "#", "icon": "pbmit-base-icon-instagram" },
+      { "name": "youtube", "url": "#", "icon": "pbmit-base-icon-youtube-play" }
+    ]
+  },
+  {
+    "sno": 3,
+    "name": "Eliana Ivy",
+    "role": "Family Lawyer",
+    "image": "images/team/team-03.jpg",
+    "client": "PBM Infotech",
+    "phone": "+ (123) 1800-567-8990",
+    "email": "eliana.ivy@aarohanlaw.com",
+    "personal_info": [
+      "Eliana Ivy provides compassionate guidance in family law matters, including divorce and custody issues.",
+      "She works to protect clients and their families through clear, sensitive, and practical representation."
+    ],
+    "skills": [
+      { "label": "FAMILY LAW", "percent": 86 },
+      { "label": "SUCCESS CASE", "percent": 94 }
+    ],
+    "education": [
+      { "period": "2004-2007", "detail": "Bachelor of Laws" },
+      { "period": "2009-2011", "detail": "Master of Family Law" },
+      { "period": "2011-2020", "detail": "Family Mediation Practice" }
+    ],
+    "socials": [
+      { "name": "facebook", "url": "#", "icon": "pbmit-base-icon-facebook-squared" },
+      { "name": "twitter", "url": "#", "icon": "pbmit-base-icon-twitter" },
+      { "name": "instagram", "url": "#", "icon": "pbmit-base-icon-instagram" },
+      { "name": "youtube", "url": "#", "icon": "pbmit-base-icon-youtube-play" }
+    ]
+  },
+  {
+    "sno": 4,
+    "name": "Bradley Cody",
+    "role": "Civil Lawyer",
+    "image": "images/team/team-04.jpg",
+    "client": "PBM Infotech",
+    "phone": "+ (123) 1800-567-8990",
+    "email": "bradley.cody@aarohanlaw.com",
+    "personal_info": [
+      "Bradley Cody represents clients in civil disputes, property matters, and contractual disagreements.",
+      "He focuses on efficient resolutions while preparing every matter for effective negotiation or litigation."
+    ],
+    "skills": [
+      { "label": "CIVIL PRACTICE", "percent": 84 },
+      { "label": "SUCCESS CASE", "percent": 91 }
+    ],
+    "education": [
+      { "period": "2001-2004", "detail": "Bachelor of Laws" },
+      { "period": "2007-2009", "detail": "Master of Civil Law" },
+      { "period": "2010-2018", "detail": "Civil Litigation Practice" }
+    ],
+    "socials": [
+      { "name": "facebook", "url": "#", "icon": "pbmit-base-icon-facebook-squared" },
+      { "name": "twitter", "url": "#", "icon": "pbmit-base-icon-twitter" },
+      { "name": "instagram", "url": "#", "icon": "pbmit-base-icon-instagram" },
+      { "name": "youtube", "url": "#", "icon": "pbmit-base-icon-youtube-play" }
+    ]
+  },
+  {
+    "sno": 5,
+    "name": "Catalina Sage",
+    "role": "Criminal Lawyer",
+    "image": "images/team/team-05.jpg",
+    "client": "PBM Infotech",
+    "phone": "+ (123) 1800-567-8990",
+    "email": "catalina.sage@aarohanlaw.com",
+    "personal_info": [
+      "Catalina Sage provides strategic defence for clients facing criminal allegations and investigations.",
+      "She is committed to protecting procedural rights and delivering strong, evidence-led representation."
+    ],
+    "skills": [
+      { "label": "CRIMINAL DEFENCE", "percent": 89 },
+      { "label": "SUCCESS CASE", "percent": 93 }
+    ],
+    "education": [
+      { "period": "2003-2006", "detail": "Bachelor of Laws" },
+      { "period": "2008-2010", "detail": "Master of Criminal Law" },
+      { "period": "2010-2019", "detail": "Criminal Trial Practice" }
+    ],
+    "socials": [
+      { "name": "facebook", "url": "#", "icon": "pbmit-base-icon-facebook-squared" },
+      { "name": "twitter", "url": "#", "icon": "pbmit-base-icon-twitter" },
+      { "name": "instagram", "url": "#", "icon": "pbmit-base-icon-instagram" },
+      { "name": "youtube", "url": "#", "icon": "pbmit-base-icon-youtube-play" }
+    ]
+  },
+  {
+    "sno": 6,
+    "name": "Raelyn Esme",
+    "role": "General Lawyer",
+    "image": "images/team/team-06.jpg",
+    "client": "PBM Infotech",
+    "phone": "+ (123) 1800-567-8990",
+    "email": "raelyn.esme@aarohanlaw.com",
+    "personal_info": [
+      "Raelyn Esme provides practical legal support across general practice and a broad range of client matters.",
+      "Her advice is tailored, responsive, and designed to help clients make informed decisions."
+    ],
+    "skills": [
+      { "label": "GENERAL PRACTICE", "percent": 82 },
+      { "label": "SUCCESS CASE", "percent": 90 }
+    ],
+    "education": [
+      { "period": "2002-2005", "detail": "Bachelor of Laws" },
+      { "period": "2007-2009", "detail": "Master of Legal Studies" },
+      { "period": "2010-2018", "detail": "General Legal Practice" }
+    ],
+    "socials": [
+      { "name": "facebook", "url": "#", "icon": "pbmit-base-icon-facebook-squared" },
+      { "name": "twitter", "url": "#", "icon": "pbmit-base-icon-twitter" },
+      { "name": "instagram", "url": "#", "icon": "pbmit-base-icon-instagram" },
+      { "name": "youtube", "url": "#", "icon": "pbmit-base-icon-youtube-play" }
+    ]
+  }
+]

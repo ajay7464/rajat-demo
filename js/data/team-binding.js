@@ -34,7 +34,7 @@
         <div class="pbminfotech-box-content">
           <div class="pbminfotech-box-content-inner">
             <h3 class="pbmit-team-title">
-              <a href="team-member-details.html?member=${encodeURIComponent(member.name)}">${member.name}</a>
+              <a href="team-member-details.html?sno=${encodeURIComponent(member.sno)}">${member.name}</a>
             </h3>
             <div class="pbminfotech-team-position">
               <div class="pbminfotech-box-team-position">${member.role}</div>
@@ -81,7 +81,7 @@
             <div class="pbminfotech-box-content">
               <div class="pbminfotech-box-content-inner">
                 <h3 class="pbmit-team-title">
-                  <a href="team-member-details.html?member=${encodeURIComponent(member.name)}">${member.name}</a>
+                  <a href="team-member-details.html?sno=${encodeURIComponent(member.sno)}">${member.name}</a>
                 </h3>
                 <div class="pbminfotech-team-position">
                   <div class="pbminfotech-box-team-position">${member.role}</div>
@@ -106,11 +106,14 @@
     if (!detailName) return;
 
     const params = new URLSearchParams(window.location.search);
+    const requestedSno = params.get('sno');
     const requestedName = params.get('member') || params.get('name') || params.get('title');
 
-    const member = requestedName
-      ? teamMembers.find((item) => item.name.toLowerCase() === requestedName.toLowerCase())
-      : teamMembers[0];
+    const member = requestedSno
+      ? teamMembers.find((item) => String(item.sno) === String(requestedSno))
+      : requestedName
+        ? teamMembers.find((item) => item.name.toLowerCase() === requestedName.toLowerCase())
+        : teamMembers[0];
 
     if (!member) return;
 
@@ -125,6 +128,54 @@
     if (detailRole) detailRole.textContent = member.role;
     detailName.textContent = member.name;
     if (detailSocials) detailSocials.innerHTML = renderTeamSocialLinks(member.socials);
+
+    const detailClient = document.getElementById('teamDetailClient');
+    const detailPhone = document.getElementById('teamDetailPhone');
+    const detailEmail = document.getElementById('teamDetailEmail');
+    const detailEmailText = document.getElementById('teamDetailEmailText');
+
+    if (detailClient) detailClient.textContent = member.client || 'PBM Infotech';
+    if (detailPhone) detailPhone.textContent = ` ${member.phone || '+ (123) 1800-567-8990'}`;
+    if (detailEmailText) detailEmailText.textContent = member.email || '';
+    if (detailEmail) detailEmail.href = member.email ? `mailto:${member.email}` : '#';
+
+    const personalInfo = document.getElementById('teamDetailPersonalInfo');
+    if (personalInfo) {
+      personalInfo.innerHTML = (member.personal_info || []).map((text) => `<p>${text}</p>`).join('');
+    }
+
+    const skills = document.getElementById('teamDetailSkills');
+    if (skills) {
+      skills.innerHTML = (member.skills || []).map((skill) => `
+        <div class="progressbar">
+          <span class="progress-label">${skill.label}</span>
+          <div class="progress progress-lg progress-percent-bg">
+            <div class="progress-bar aos aos-init aos-animate" data-aos="slide-right"
+              data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out"
+              role="progressbar" aria-valuenow="${skill.percent}" aria-valuemin="0" aria-valuemax="100"
+              style="width:${skill.percent}%">
+            </div>
+            <span class="progress-percent">${skill.percent}%</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    const education = document.getElementById('teamDetailEducation');
+    if (education) {
+      education.innerHTML = (member.education || []).map((item) => `
+        <div class="d-flex justify-content-start">
+          <h2>${item.period} :</h2>
+          <p>${item.detail}</p>
+        </div>
+      `).join('');
+    }
+
+    const detailBreadcrumb = document.getElementById('teamDetailBreadcrumb');
+    if (detailBreadcrumb) detailBreadcrumb.textContent = member.name.toUpperCase();
+
+    const titleBarName = document.querySelector('.pbmit-tbar-title');
+    if (titleBarName) titleBarName.textContent = member.name;
 
     document.title = `${member.name} – Aarohan Law Chambers`;
   }

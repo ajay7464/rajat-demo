@@ -5,7 +5,7 @@ if (target) {
 
   const navItems = [
     { href: 'index.html', label: 'Home', children: [] },
-    { href: 'about-us-light.html', label: 'About Us', children: [ 'team-member-details.html'] },
+    { href: 'about-us-light.html', label: 'About Us', children: [] },
     { href: 'service-details.html', label: 'Service', children: [] },
     { href: 'portfolio-style-1.html', label: 'Portfolio', children: ['portfolio-details.html'] },
     { href: '#', label: 'Blog', children: ['blog-classic.html', 'blog-grid.html', 'blog-details.html'] },
@@ -26,8 +26,11 @@ if (target) {
       `
       : '';
 
+    const dropdownClass = item.children.length ? 'dropdown' : '';
+    const liClasses = [active ? 'active' : '', dropdownClass].filter(Boolean).join(' ');
+
     return `
-      <li class="${active ? 'active dropdown' : 'dropdown'}">
+      <li class="${liClasses}">
         <a href="${item.href || '#'}">${item.label}</a>
         ${childMarkup}
       </li>

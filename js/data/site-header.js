@@ -59,43 +59,46 @@ if (document.readyState === 'loading') {
 const target = document.querySelector('[data-site-header]');
 
 if (target) {
-  const pageName = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  fetch('js/data/navigation.json')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Unable to load navigation data (${response.status})`);
+      }
+      return response.json();
+    })
+    .then((navItems) => {
+      if (!Array.isArray(navItems)) {
+        throw new Error('Navigation data must be an array');
+      }
 
-  const navItems = [
-    { href: 'index.html', label: 'Home', children: [] },
-    { href: 'about-us-light.html', label: 'About Us', children: [] },
-    { href: 'service-details.html', label: 'Service', children: [] },
-    { href: 'portfolio.html', label: 'Portfolio', children: ['portfolio-details.html'] },
-    { href: '#', label: 'Blog', children: ['blog-classic.html', 'blog-grid.html', 'blog-details.html'] },
-    { href: 'contact-us.html', label: 'Contact Us', children: [] }
-  ];
+      const pageName = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      const getMenuMarkup = () => navItems.map((item) => {
+        const active = item.href && item.href !== '#' && pageName === item.href.toLowerCase();
+        const childMarkup = item.children.length
+          ? `
+            <ul>
+              ${item.children.map((child) => {
+                const childPage = child.toLowerCase();
+                const isChildActive = pageName === childPage;
+                return `<li class="${isChildActive ? 'active' : ''}"><a href="${child}">${child.replace(/[-.]/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase())}</a></li>`;
+              }).join('')}
+            </ul>
+          `
+          : '';
 
-  const getMenuMarkup = () => navItems.map((item, index) => {
-    const active = item.href && item.href !== '#' && pageName === item.href.toLowerCase();
-    const childMarkup = item.children.length
-      ? `
-        <ul>
-          ${item.children.map((child) => {
-            const childPage = child.toLowerCase();
-            const isChildActive = pageName === childPage;
-            return `<li class="${isChildActive ? 'active' : ''}"><a href="${child}">${child.replace(/[-.]/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase())}</a></li>`;
-          }).join('')}
-        </ul>
-      `
-      : '';
+        const dropdownClass = item.children.length ? 'dropdown' : '';
+        const liClasses = [active ? 'active' : '', dropdownClass].filter(Boolean).join(' ');
 
-    const dropdownClass = item.children.length ? 'dropdown' : '';
-    const liClasses = [active ? 'active' : '', dropdownClass].filter(Boolean).join(' ');
+        return `
+          <li class="${liClasses}">
+            <a href="${item.href || '#'}">${item.label}</a>
+            ${childMarkup}
+            ${item.children.length ? "<span class='righticon'><i class='ti-angle-down'></i></span>" : ''}
+          </li>
+        `;
+      }).join('');
 
-    return `
-      <li class="${liClasses}">
-        <a href="${item.href || '#'}">${item.label}</a>
-        ${childMarkup}
-      </li>
-    `;
-  }).join('');
-
-  const commonHeader = `
+      const commonHeader = `
     <header class="site-header header-style-1">
       <div class="site-header-menu">
         <div class="container-fluid g-0">
@@ -151,7 +154,7 @@ if (target) {
     </header>
   `;
 
-  const homeHeader = `
+      const homeHeader = `
     <header class="site-header header-style-1">
       <div class="site-header-menu">
         <div class="container-fluid g-0">
@@ -269,5 +272,9 @@ if (target) {
     </header>
   `;
 
-  target.innerHTML = pageName === 'index.html' ? homeHeader : commonHeader;
+      target.innerHTML = pageName === 'index.html' ? homeHeader : commonHeader;
+    })
+    .catch((error) => {
+      console.error('Navigation menu failed to load.', error);
+    });
 }

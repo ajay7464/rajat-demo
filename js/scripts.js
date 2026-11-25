@@ -348,7 +348,7 @@
   /*-------------------------------------
     Mobile Menu
   -------------------------------------*/     
-  $('.navbar-toggler,.closepanel').on('click', function () { 
+  $(document).on('click', '.navbar-toggler,.closepanel', function () {
     jQuery("header").toggleClass("active");
   }); 
 
@@ -378,14 +378,9 @@
   }); 
 
   /*-------------------------------------
-    Add plus icon in menu
+    Responsive Menu
     -------------------------------------*/
-  $( ".main-menu ul.navigation li.dropdown").append( "<span class='righticon'><i class='ti-angle-down'></i></span>" );
-  
-  /*-------------------------------------
-  Responsive Menu
-  -------------------------------------*/ 
-  $('.main-menu ul.navigation li.dropdown .righticon').on('click', function() {
+  $(document).on('click', '.main-menu ul.navigation li.dropdown .righticon', function() {
          $(this).siblings().toggleClass('open');
          $(this).find('i').toggleClass('ti-angle-down ti-angle-up');
          return false;

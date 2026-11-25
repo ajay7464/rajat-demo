@@ -1078,6 +1078,11 @@ div#clock span:first-child {
     margin-bottom: 30px;
     position: relative;
 }
+.pbmit-portfolio-style-3 a.pbmit-link {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+}
 .pbmit-portfolio-style-3 .pbminfotech-box-content {
     position: absolute;
     z-index: 3;
@@ -1214,6 +1219,11 @@ div#clock span:first-child {
     padding: 0 ;
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
+}
+.pbmit-blog-style-2 a.pbmit-home-blog-link {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
 }
 .pbmit-posts-wrapper .pbmit-blog-style-2:first-child{
     padding-top: 40px;

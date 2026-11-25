@@ -39,6 +39,8 @@ async function loadSiteConfig() {
         item.name.toLowerCase() === String(requestedTitle).toLowerCase()
       );
       setPageTitle(member ? member.name : requestedTitle);
+    } else if (pageName === 'blog-details.html') {
+      setPageTitle(window.blogPageTitle || SITE_TITLES[pageName]);
     } else if (pageName === 'team-member-details.html') {
       const memberTitle = document.querySelector('.pbmit-team-title');
       setPageTitle(memberTitle?.textContent.trim() || SITE_TITLES[pageName]);
@@ -73,7 +75,10 @@ if (target) {
 
       const pageName = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
       const getMenuMarkup = () => navItems.map((item) => {
-        const active = item.href && item.href !== '#' && pageName === item.href.toLowerCase();
+        const active = item.href && item.href !== '#' && (
+          pageName === item.href.toLowerCase() ||
+          (item.href === 'blog.html' && pageName === 'blog-details.html')
+        );
         const childMarkup = item.children.length
           ? `
             <ul>
@@ -273,6 +278,7 @@ if (target) {
   `;
 
       target.innerHTML = pageName === 'index.html' ? homeHeader : commonHeader;
+      window.dispatchEvent(new Event('siteHeaderLoaded'));
     })
     .catch((error) => {
       console.error('Navigation menu failed to load.', error);

@@ -40,6 +40,9 @@
   var x = 1;
   swiperslider.each(function () {  
              var carouselElement	= $(this);
+             if (carouselElement.is('[data-home-portfolio-slider]')) {
+               return;
+             }
              var header_area =  $(this).closest('section').find( '.pbmit-ele-header-area');
               var columns = $(this).data('columns');
               var loop = $(this).data('loop');
@@ -197,6 +200,60 @@
           }
             x = x + 1;             
         });
+
+    function initializeHomeHeaderSlider() {
+      var sliderElement = document.querySelector('.pbmit-slider-one .swiper-slider');
+      if (!sliderElement || sliderElement.swiper) {
+        return;
+      }
+
+      var showPagination = sliderElement.dataset.dots === 'true';
+      var pagination = sliderElement.querySelector('.swiper-pagination');
+      if (showPagination && !pagination) {
+        pagination = document.createElement('div');
+        pagination.className = 'swiper-pagination';
+        sliderElement.appendChild(pagination);
+      }
+
+      new Swiper(sliderElement, {
+        loop: sliderElement.dataset.loop === 'true',
+        autoplay: sliderElement.dataset.autoplay === 'true',
+        pagination: showPagination ? { el: pagination, clickable: true } : false,
+        slidesPerView: Number(sliderElement.dataset.columns) || 1,
+        spaceBetween: Number(sliderElement.dataset.margin) || 0,
+        effect: sliderElement.dataset.effect || 'slide',
+        speed: 800,
+      });
+    }
+
+    window.addEventListener('siteHeaderLoaded', initializeHomeHeaderSlider);
+    initializeHomeHeaderSlider();
+
+    function initializeHomePortfolioSlider() {
+      var sliderElement = document.querySelector('[data-home-portfolio-slider]');
+      if (!sliderElement || sliderElement.swiper) {
+        return;
+      }
+
+      new Swiper(sliderElement, {
+        loop: sliderElement.dataset.loop === 'true',
+        autoplay: sliderElement.dataset.autoplay === 'true',
+        slidesPerView: Number(sliderElement.dataset.columns) || 5,
+        spaceBetween: Number(sliderElement.dataset.margin) || 0,
+        effect: sliderElement.dataset.effect || 'slide',
+        speed: 800,
+        breakpoints: {
+          1199: { slidesPerView: 5 },
+          991: { slidesPerView: 2 },
+          767: { slidesPerView: 2 },
+          575: { slidesPerView: 1 },
+          0: { slidesPerView: 1 },
+        },
+      });
+    }
+
+    window.addEventListener('homePortfolioLoaded', initializeHomePortfolioSlider);
+
     function updatecircle(elm, cr, tl) {
         var cal = getpercentage(tl, cr, elm); 
         var short_digit = cal / 100;

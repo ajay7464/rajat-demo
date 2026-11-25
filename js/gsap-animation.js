@@ -20,10 +20,13 @@ function pbmit_img_animation() {
 }
 
 // ** Hover Image Effect ** \\
-function pbmit_hover_img() {
-    const pbmitHoverImg = gsap.utils.toArray(".pbmit-element-portfolio-style-1 article,.pbmit-element-blog-style-2 article,.pbmit-element-service-style-2 article, .pbmit-timeline .pbmit-content");
+function pbmit_hover_img(root = document) {
+    const pbmitHoverImg = gsap.utils.toArray(root.querySelectorAll(".pbmit-element-portfolio-style-1 article,.pbmit-element-blog-style-2 article,.pbmit-element-service-style-2 article, .pbmit-timeline .pbmit-content"));
     pbmitHoverImg.forEach((target) => {
+        if (target.dataset.pbmitHoverInitialized === 'true') return;
         const pbmitImg = target.querySelector('.pbmit-hover-img');
+        if (!pbmitImg) return;
+        target.dataset.pbmitHoverInitialized = 'true';
         const t1 = gsap.timeline();
         t1.to(pbmitImg, {
             opacity: 1,

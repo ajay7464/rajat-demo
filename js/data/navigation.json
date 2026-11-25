@@ -3,6 +3,6 @@
   { "href": "about-us-light.html", "label": "About Us", "children": [] },
   { "href": "service-details.html", "label": "Service", "children": [] },
   { "href": "portfolio.html", "label": "Portfolio", "children": [] },
-  { "href": "#", "label": "Blog", "children": ["blog-classic.html", "blog-grid.html", "blog-details.html"] },
+  { "href": "blog.html", "label": "Blog", "children": [] },
   { "href": "contact-us.html", "label": "Contact Us", "children": [] }
 ]

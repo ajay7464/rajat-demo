@@ -77,7 +77,8 @@ if (target) {
       const getMenuMarkup = () => navItems.map((item) => {
         const active = item.href && item.href !== '#' && (
           pageName === item.href.toLowerCase() ||
-          (item.href === 'blog.html' && pageName === 'blog-details.html')
+          (item.href === 'blog.html' && pageName === 'blog-details.html') ||
+          (item.href === 'service.html' && pageName === 'service-details.html')
         );
         const childMarkup = item.children.length
           ? `

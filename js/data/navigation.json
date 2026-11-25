@@ -1,7 +1,7 @@
 [
   { "href": "index.html", "label": "Home", "children": [] },
   { "href": "about-us-light.html", "label": "About Us", "children": [] },
-  { "href": "service-details.html", "label": "Service", "children": [] },
+  { "href": "service.html", "label": "Service", "children": [] },
   { "href": "portfolio.html", "label": "Portfolio", "children": [] },
   { "href": "blog.html", "label": "Blog", "children": [] },
   { "href": "contact-us.html", "label": "Contact Us", "children": [] }

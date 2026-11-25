@@ -4,7 +4,7 @@
    <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>About Us light 2 – Attorly Demo HTML Template</title>
+      <title>About Us light 2 – Aarohan Law Chambers</title>
       <meta name="robots" content="noindex, follow">
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,7 +46,7 @@
       <!-- Page Wrapper -->
       <div class="page-wrapper">
 <div data-site-header></div>
-<script src="js/site-header.js"></script>
+<script src="js/data/site-header.js"></script>
 <!-- Title Bar -->
          <div class="pbmit-title-bar-wrapper pbmit-title-bar-style-1">
             <div class="container">
@@ -607,7 +607,7 @@
 
       <!-- footer -->
 <div data-site-footer></div>
-<script src="js/site-footer.js"></script>
+<script src="js/data/site-footer.js"></script>
 <!-- footer End -->
          
 	  </div>
@@ -628,56 +628,8 @@
            <!-- JS
          ============================================ -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-      <script src="js/team-data.js"></script>
-      <script>
-         const teamMembersWrapper = document.getElementById('teamMembersWrapper');
-
-         function renderTeamMembers() {
-            const teamMembers = window.teamMembers || [];
-
-            if (teamMembersWrapper) {
-               teamMembersWrapper.innerHTML = teamMembers.map((member) => `
-                  <div class="swiper-slide">
-                     <article class="pbmit-team-style-2">
-                        <div class="pbminfotech-post-item">
-                           <div class="pbminfotech-team-image-box">
-                              <div class="pbminfotech-box-social-links">
-                                 <ul class="pbmit-social-links pbmit-team-social-links">
-                                    ${(member.socials || []).map((social) => `
-                                       <li class="pbmit-social-li pbmit-social-${social.name}">
-                                          <a href="${social.url || '#'}" title="${(social.name || 'Social').charAt(0).toUpperCase() + (social.name || 'Social').slice(1)}" target="_blank">
-                                             <span><i class="${social.icon || 'pbmit-base-icon-link'}"></i></span>
-                                          </a>
-                                       </li>
-                                    `).join('')}
-                                 </ul>
-                              </div>
-                              <div class="pbmit-featured-img-wrapper">
-                                 <div class="pbmit-featured-wrapper">
-                                    <img src="${member.image}" class="img-fluid" alt="${member.name}">
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="pbminfotech-box-content">
-                              <div class="pbminfotech-box-content-inner">
-                                 <h3 class="pbmit-team-title">
-                                    <a href="team-member-details.html">${member.name}</a>
-                                 </h3>
-                                 <div class="pbminfotech-team-position">
-                                    <div class="pbminfotech-box-team-position">${member.role}</div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </article>
-                  </div>
-               `).join('');
-            }
-         }
-
-         window.addEventListener('teamDataLoaded', renderTeamMembers);
-         renderTeamMembers();
-      </script>
+      <script src="js/data/team-data.js"></script>
+      <script src="js/data/team-binding.js"></script>
       <script src="js/jquery.min.js"></script>
       <!-- Popper JS -->
       <script src="js/popper.min.js"></script>

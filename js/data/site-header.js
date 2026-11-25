@@ -208,5 +208,60 @@ if (target) {
     </header>
   `;
 
+  const pageTitleMap = {
+    'index.html': 'Home',
+    'about-us-light.html': 'About Us',
+    'contact-us.html': 'Contact Us',
+    'blog-classic.html': 'Blog Classic',
+    'blog-grid.html': 'Blog Grid View',
+    'blog-details.html': 'Divorce in the UK today',
+    'portfolio-style-1.html': 'Portfolio Style 1',
+    'portfolio-details.html': 'Tax Consultancy',
+    'service-details.html': 'International Law & Justice',
+    'team-member-details.html': 'Team Member'
+  };
+
+  const brandName = 'Aarohan Law Chambers';
+  const titleParams = new URLSearchParams(window.location.search);
+  const requestedTitle = titleParams.get('title') || titleParams.get('member') || titleParams.get('name');
+
+  function setPageTitle(title) {
+    const cleanTitle = String(title || '').trim();
+    if (!cleanTitle) return;
+    document.title = cleanTitle.endsWith(brandName) || cleanTitle.endsWith('Law Firm HTML Template')
+      ? cleanTitle
+      : `${cleanTitle} – ${brandName}`;
+  }
+
+  if (requestedTitle) {
+    setPageTitle(requestedTitle);
+  } else if (pageName === 'team-member-details.html') {
+    const teamTitle = document.querySelector('.pbmit-team-title');
+    setPageTitle(teamTitle ? teamTitle.textContent : pageTitleMap[pageName]);
+  } else {
+    setPageTitle(pageTitleMap[pageName]);
+  }
+
+  window.addEventListener('DOMContentLoaded', function () {
+    if (requestedTitle) {
+      setPageTitle(requestedTitle);
+      return;
+    }
+
+    const titleBarTitle = document.querySelector('.pbmit-tbar-title');
+    if (pageName === 'team-member-details.html') {
+      const teamTitle = document.querySelector('.pbmit-team-title');
+      setPageTitle(teamTitle ? teamTitle.textContent : (requestedTitle || titleBarTitle?.textContent || pageTitleMap[pageName]));
+      return;
+    }
+
+    if (titleBarTitle && titleBarTitle.textContent.trim()) {
+      setPageTitle(titleBarTitle.textContent);
+      return;
+    }
+
+    setPageTitle(pageTitleMap[pageName]);
+  });
+
   target.innerHTML = pageName === 'index.html' ? homeHeader : commonHeader;
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Michael Daniel – Attorly Demo HTML Template</title>
+    <title>Michael Daniel – Aarohan Law Chambers</title>
     <meta name="robots" content="noindex, follow">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,7 +45,7 @@
     <!-- Page Wrapper -->
     <div class="page-wrapper">
 <div data-site-header></div>
-<script src="js/site-header.js"></script>
+<script src="js/data/site-header.js"></script>
 <!-- Title Bar -->
         <div class="pbmit-title-bar-wrapper">
             <div class="container">
@@ -80,20 +80,13 @@
                   <div class="row">
                      <div class="col-lg-4">
                         <div class="pbmit-team-details">
-                           <img src="images/team/team-01.jpg" class="w-100" alt="">
+                           <img id="teamDetailImage" src="images/team/team-01.jpg" class="w-100" alt="">
                            <div class="pbmit-team-detail-inner ">
                               <div class="pbmit-team-summary">
-                              <h4 class="pbmit-team-designation">Co-Founder</h4> 
-                              <h2 class="pbmit-team-title">Michael Daniel</h2>
+                              <h4 id="teamDetailRole" class="pbmit-team-designation">Co-Founder</h4> 
+                              <h2 id="teamDetailName" class="pbmit-team-title">Michael Daniel</h2>
                               </div>
-                              <ul class="pbmit-single-team-info">
-                                 <li><label>Client</label>PBM Infotech</li> 
-                                 <li><label>Phone</label> + (123) 1800-567-8990</li> 
-                                 <li><label>Email</label> 
-                                    <a href="https://attorly-demo.pbminfotech.com/cdn-cgi/l/email-protection#82eae7eeeeedc2ebece4ede3f6f6edf0eefbace1edef"><span class="__cf_email__" data-cfemail="3159545d5d5e71585f575e5045455e435d481f525e5c">[email&#160;protected]</span></a>
-                                 </li> 
-                              </ul>
-                              <ul class="pbmit-social-links pbmit-team-social-links">
+                              <ul id="teamDetailSocials" class="pbmit-social-links pbmit-team-social-links">
                                  <li class="pbmit-social-li pbmit-social-facebook">
                                     <a href="#" title="Facebook" target="_blank">
                                        <span><i class="pbmit-base-icon-facebook-squared"></i></span>
@@ -205,7 +198,7 @@
         </div>
         <!-- Page Content End -->
 <div data-site-footer></div>
-<script src="js/site-footer.js"></script>
+<script src="js/data/site-footer.js"></script>
 
    </div>
    <!-- Page Wrapper End -->
@@ -224,6 +217,9 @@
 
          <!-- JS
          ============================================ -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+      <script src="js/data/team-data.js"></script>
+      <script src="js/data/team-binding.js"></script>
       <!-- jQuery JS --><script src="js/jquery.min.js"></script>
       <!-- Popper JS -->
       <script src="js/popper.min.js"></script>

@@ -1,0 +1,365 @@
+[
+  {
+    "id": "medical-negligence",
+    "title": "Medical Negligence",
+    "category": "Business",
+    "image": "images/project/project-01b.jpg",
+    "heading": "Medical Negligence Case Review",
+    "subheading": "Healthcare Law",
+    "description": "A patient sought guidance after a treatment outcome raised concerns about the standard of care. The legal team reviewed the available records and explained the options for pursuing a resolution.",
+    "metadata": {
+      "client": "Confidential Client",
+      "team": "Healthcare Law",
+      "date": "Mar 12, 2024",
+      "shareIcons": ["fa fa-facebook-f", "pbmit-base-icon-twitter", "pbmit-base-icon-mail-alt", "fa fa-plus"]
+    },
+    "challenge": {
+      "heading": "01 The challenge :",
+      "paragraphs": [
+        "The client needed a clear assessment of whether the care provided met applicable professional standards.",
+        "Important records were held by several providers, making it difficult to establish a complete timeline."
+      ],
+      "images": [
+        { "src": "images/project/project-01b.jpg", "alt": "Medical negligence case" },
+        { "src": "images/project/project-02b.jpg", "alt": "Case documentation" }
+      ]
+    },
+    "solution": {
+      "heading": "02 The solution :",
+      "intro": "Our team organized the available records, sought independent clinical insight, and explained a practical path forward.",
+      "points": [
+        "Reviewed treatment records and relevant correspondence.",
+        "Prepared a clear summary of the client's options and next steps."
+      ],
+      "paragraphs": [
+        [{ "text": "Consistent communication helped the client understand each stage of the review." }],
+        [{ "text": "The matter was prepared with care, " }, { "text": "keeping the client's priorities at the centre.", "emphasis": true }]
+      ]
+    },
+    "result": {
+      "heading": "03 The Result :",
+      "description": "The client received a detailed assessment and a documented plan for moving the matter toward a fair resolution.",
+      "quote": "“The guidance gave us a clear understanding of what to expect at every step.”",
+      "quoteAuthor": "Confidential Client",
+      "quoteAuthorDescription": "Client"
+    }
+  },
+  {
+    "id": "tax-consultancy",
+    "title": "Tax Consultancy",
+    "category": "Financial",
+    "image": "images/project/project-02b.jpg",
+    "heading": "Artboard Studio",
+    "subheading": "Consulting",
+    "description": "Providers (lawyers, paralegals, legal assistants, nurses and other business partners) who are passionate about providing exceptional legal services in a creative environment. If you’re aiming to bulk up these upper body areas, we’d generally recommend incorporating.",
+    "metadata": {
+      "client": "Michael Daniel",
+      "team": "Financial",
+      "date": "Jun 20, 2022",
+      "shareIcons": ["fa fa-facebook-f", "pbmit-base-icon-twitter", "pbmit-base-icon-mail-alt", "fa fa-plus"]
+    },
+    "challenge": {
+      "heading": "01 The challenge :",
+      "paragraphs": [
+        "At Powerlegal Law Firm, we have designed a community of legal service providers (lawyers, paralegals, legal assistants, nurses and other business partners) who are passionate about providing exceptional legal services in a creative environment.",
+        "Powerlegal Law Firm, we have designed a community of legal service providers (lawyers, paralegals, legal assistants, nurses and other business partners) who are passionate about providing exceptional legal services in a creative environment."
+      ],
+      "images": [
+        { "src": "images/project/project-6.jpg", "alt": "" },
+        { "src": "images/project/project-5.jpg", "alt": "" }
+      ]
+    },
+    "solution": {
+      "heading": "02 The solution :",
+      "intro": "Powerlegal Law Firm, we have designed a community of legal service providers (lawyers, paralegals, legal assistants, nurses and other business partners) who are passionate about providing exceptional legal services in a creative environment.",
+      "points": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+        "ncrease in website sessions comparing 5 months before"
+      ],
+      "paragraphs": [
+        [{ "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo." }],
+        [
+          { "text": " Next on our list of 2021 content trends is optimizing content for search engines. This trend has existed for a while,\n                                       " },
+          { "text": "but it still holds true throughout.", "emphasis": true }
+        ]
+      ]
+    },
+    "result": {
+      "heading": "03 The Result :",
+      "description": "When you create your videos, make sure you’re effectively capturing your audience’s attention and making them want to watch your content. Try telling a story or sharing an interesting fact to get your audience.",
+      "quote": "“We know that when you hire a removal company you’re putting your trust in the people that move your precious belongings.”",
+      "quoteAuthor": "Simon Pierro",
+      "quoteAuthorDescription": "world-famous magician"
+    }
+  },
+  {
+    "id": "trade-and-markets",
+    "title": "Trade and Markets",
+    "category": "Business",
+    "image": "images/project/project-03b.jpg",
+    "heading": "Trade and Markets Advisory",
+    "subheading": "Commercial Law",
+    "description": "A growing business needed practical advice on a cross-border supply arrangement. Counsel helped clarify the commercial terms and identify legal considerations before the agreement was finalized.",
+    "metadata": {
+      "client": "Confidential Business",
+      "team": "Commercial Law",
+      "date": "Apr 08, 2024",
+      "shareIcons": ["fa fa-facebook-f", "pbmit-base-icon-twitter", "pbmit-base-icon-mail-alt", "fa fa-plus"]
+    },
+    "challenge": {
+      "heading": "01 The challenge :",
+      "paragraphs": [
+        "The proposed arrangement involved several markets, delivery obligations, and different approaches to resolving disputes.",
+        "The client wanted to understand its exposure without slowing down negotiations."
+      ],
+      "images": [
+        { "src": "images/project/project-03b.jpg", "alt": "Trade and markets matter" },
+        { "src": "images/project/project-04b.jpg", "alt": "Commercial agreement" }
+      ]
+    },
+    "solution": {
+      "heading": "02 The solution :",
+      "intro": "The team reviewed the draft terms and worked with the client to make the key obligations clear and workable.",
+      "points": [
+        "Mapped the delivery, payment, and risk provisions.",
+        "Suggested balanced language for notice and dispute procedures."
+      ],
+      "paragraphs": [
+        [{ "text": "Focused advice helped the business make informed decisions while negotiations continued." }],
+        [{ "text": "The final terms reflected the commercial goals " }, { "text": "and a considered approach to risk.", "emphasis": true }]
+      ]
+    },
+    "result": {
+      "heading": "03 The Result :",
+      "description": "The client moved forward with a clearer agreement and a shared understanding of each party's responsibilities.",
+      "quote": "“We could focus on the opportunity, knowing the important terms had been carefully reviewed.”",
+      "quoteAuthor": "Confidential Business",
+      "quoteAuthorDescription": "Client"
+    }
+  },
+  {
+    "id": "marriage-agreements",
+    "title": "Marriage Agreements",
+    "category": "Personal",
+    "image": "images/project/project-04b.jpg",
+    "heading": "Marriage Agreement Planning",
+    "subheading": "Family Law",
+    "description": "A couple wanted to document financial expectations before marriage in a thoughtful and transparent way. The legal team guided each person through the agreement and its implications.",
+    "metadata": {
+      "client": "Private Individuals",
+      "team": "Family Law",
+      "date": "May 16, 2024",
+      "shareIcons": ["fa fa-facebook-f", "pbmit-base-icon-twitter", "pbmit-base-icon-mail-alt", "fa fa-plus"]
+    },
+    "challenge": {
+      "heading": "01 The challenge :",
+      "paragraphs": [
+        "The couple wanted an agreement that reflected their individual circumstances and future plans.",
+        "They needed independent, clear advice to make informed decisions without unnecessary conflict."
+      ],
+      "images": [
+        { "src": "images/project/project-04b.jpg", "alt": "Marriage agreement planning" },
+        { "src": "images/project/project-05b.jpg", "alt": "Agreement review" }
+      ]
+    },
+    "solution": {
+      "heading": "02 The solution :",
+      "intro": "Each person received guidance on disclosure, proposed terms, and the practical effect of the agreement.",
+      "points": [
+        "Helped the couple identify and organize relevant financial information.",
+        "Reviewed the proposed terms and explained options for revision."
+      ],
+      "paragraphs": [
+        [{ "text": "A measured process gave both people time to consider the agreement." }],
+        [{ "text": "The final document was tailored to their needs " }, { "text": "and discussed in plain language.", "emphasis": true }]
+      ]
+    },
+    "result": {
+      "heading": "03 The Result :",
+      "description": "The couple completed an agreement that recorded their intentions and gave them greater clarity as they planned their future.",
+      "quote": "“We appreciated having the time and support to understand every part of the agreement.”",
+      "quoteAuthor": "Private Individuals",
+      "quoteAuthorDescription": "Clients"
+    }
+  },
+  {
+    "id": "car-accident-case",
+    "title": "Car Accident Case",
+    "category": "Criminal",
+    "image": "images/project/project-05b.jpg",
+    "heading": "Road Accident Case Support",
+    "subheading": "Personal Injury",
+    "description": "Following a serious road collision, a client needed help understanding the claims process and organizing evidence related to their losses.",
+    "metadata": {
+      "client": "Confidential Client",
+      "team": "Personal Injury",
+      "date": "Jun 03, 2024",
+      "shareIcons": ["fa fa-facebook-f", "pbmit-base-icon-twitter", "pbmit-base-icon-mail-alt", "fa fa-plus"]
+    },
+    "challenge": {
+      "heading": "01 The challenge :",
+      "paragraphs": [
+        "The client was managing recovery while receiving requests from insurers and other parties.",
+        "Medical records, repair estimates, and incident details needed to be assembled into a clear account."
+      ],
+      "images": [
+        { "src": "images/project/project-05b.jpg", "alt": "Road accident case" },
+        { "src": "images/project/project-06b.jpg", "alt": "Case review" }
+      ]
+    },
+    "solution": {
+      "heading": "02 The solution :",
+      "intro": "The team helped organize the evidence, explain the process, and coordinate communications on the client's behalf.",
+      "points": [
+        "Prepared a timeline from the available incident and treatment records.",
+        "Outlined the information needed to assess potential losses."
+      ],
+      "paragraphs": [
+        [{ "text": "Regular updates helped the client stay informed throughout the review." }],
+        [{ "text": "A structured file made the next steps " }, { "text": "easier to understand and manage.", "emphasis": true }]
+      ]
+    },
+    "result": {
+      "heading": "03 The Result :",
+      "description": "The client received a clear summary of the available evidence and a practical plan for progressing the claim.",
+      "quote": "“Having someone organize the details made a difficult period feel more manageable.”",
+      "quoteAuthor": "Confidential Client",
+      "quoteAuthorDescription": "Client"
+    }
+  },
+  {
+    "id": "public-company-fraud",
+    "title": "Public Company Fraud",
+    "category": "Business",
+    "image": "images/project/project-06b.jpg",
+    "heading": "Public Company Fraud Review",
+    "subheading": "Corporate Investigations",
+    "description": "A company requested a confidential review after concerns arose about irregular reporting and internal controls. The legal team helped assess the available information and plan a proportionate response.",
+    "metadata": {
+      "client": "Confidential Corporation",
+      "team": "Corporate Investigations",
+      "date": "Jul 22, 2024",
+      "shareIcons": ["fa fa-facebook-f", "pbmit-base-icon-twitter", "pbmit-base-icon-mail-alt", "fa fa-plus"]
+    },
+    "challenge": {
+      "heading": "01 The challenge :",
+      "paragraphs": [
+        "The organization needed to understand the scope of reported concerns while protecting sensitive information.",
+        "Relevant records were spread across teams and required a careful, consistent review."
+      ],
+      "images": [
+        { "src": "images/project/project-06b.jpg", "alt": "Corporate investigation" },
+        { "src": "images/project/project-07b.jpg", "alt": "Document review" }
+      ]
+    },
+    "solution": {
+      "heading": "02 The solution :",
+      "intro": "Counsel established a focused review process, coordinated document collection, and provided regular updates to decision-makers.",
+      "points": [
+        "Identified relevant records and key questions for the review.",
+        "Advised on appropriate steps to preserve confidentiality."
+      ],
+      "paragraphs": [
+        [{ "text": "A structured approach helped the company assess the facts before deciding on further action." }],
+        [{ "text": "Recommendations were grounded in the available evidence " }, { "text": "and the organization's stated priorities.", "emphasis": true }]
+      ]
+    },
+    "result": {
+      "heading": "03 The Result :",
+      "description": "The company received a confidential findings summary and a set of practical recommendations for strengthening oversight.",
+      "quote": "“The review gave us a clear, measured basis for deciding what to do next.”",
+      "quoteAuthor": "Confidential Corporation",
+      "quoteAuthorDescription": "Client"
+    }
+  },
+  {
+    "id": "privacy-matter",
+    "title": "Privacy Matter",
+    "category": "Civil",
+    "image": "images/project/project-07b.jpg",
+    "heading": "Privacy and Data Protection",
+    "subheading": "Privacy Law",
+    "description": "A business sought advice after identifying a potential exposure of personal information. The team helped assess notification obligations and coordinate a measured response.",
+    "metadata": {
+      "client": "Confidential Business",
+      "team": "Privacy Law",
+      "date": "Aug 14, 2024",
+      "shareIcons": ["fa fa-facebook-f", "pbmit-base-icon-twitter", "pbmit-base-icon-mail-alt", "fa fa-plus"]
+    },
+    "challenge": {
+      "heading": "01 The challenge :",
+      "paragraphs": [
+        "The business needed to establish what information may have been affected and who could be impacted.",
+        "It also needed to respond promptly while maintaining accurate records of its investigation."
+      ],
+      "images": [
+        { "src": "images/project/project-07b.jpg", "alt": "Privacy matter" },
+        { "src": "images/project/project-08b.jpg", "alt": "Data protection review" }
+      ]
+    },
+    "solution": {
+      "heading": "02 The solution :",
+      "intro": "The legal team worked with internal stakeholders to scope the incident and document decisions against applicable requirements.",
+      "points": [
+        "Mapped the information involved and the response timeline.",
+        "Prepared clear guidance for communications and follow-up actions."
+      ],
+      "paragraphs": [
+        [{ "text": "The process balanced timely action with careful fact-finding." }],
+        [{ "text": "Documented recommendations supported " }, { "text": "a consistent and accountable response.", "emphasis": true }]
+      ]
+    },
+    "result": {
+      "heading": "03 The Result :",
+      "description": "The business completed a documented response plan and identified improvements to its information-handling practices.",
+      "quote": "“We had a practical plan and knew how to communicate clearly with those affected.”",
+      "quoteAuthor": "Confidential Business",
+      "quoteAuthorDescription": "Client"
+    }
+  },
+  {
+    "id": "family-violence",
+    "title": "Family Violence",
+    "category": "Family",
+    "image": "images/project/project-08b.jpg",
+    "heading": "Family Safety and Support",
+    "subheading": "Family Law",
+    "description": "A client sought confidential support to understand available legal protections and plan for immediate safety. The team provided sensitive guidance tailored to the client's circumstances.",
+    "metadata": {
+      "client": "Confidential Client",
+      "team": "Family Law",
+      "date": "Sep 05, 2024",
+      "shareIcons": ["fa fa-facebook-f", "pbmit-base-icon-twitter", "pbmit-base-icon-mail-alt", "fa fa-plus"]
+    },
+    "challenge": {
+      "heading": "01 The challenge :",
+      "paragraphs": [
+        "The client needed clear information about protective options while managing a sensitive and changing situation.",
+        "Advice had to prioritize confidentiality, safety, and the client's own decisions."
+      ],
+      "images": [
+        { "src": "images/project/project-08b.jpg", "alt": "Family support matter" },
+        { "src": "images/project/project-01b.jpg", "alt": "Legal guidance" }
+      ]
+    },
+    "solution": {
+      "heading": "02 The solution :",
+      "intro": "The team discussed immediate concerns, explained relevant legal processes, and helped the client identify appropriate support.",
+      "points": [
+        "Outlined available protective measures in plain language.",
+        "Coordinated next steps around the client's stated safety needs."
+      ],
+      "paragraphs": [
+        [{ "text": "The client was given time to ask questions and consider each option." }],
+        [{ "text": "Support remained confidential, respectful, " }, { "text": "and guided by the client's priorities.", "emphasis": true }]
+      ]
+    },
+    "result": {
+      "heading": "03 The Result :",
+      "description": "The client left with a clearer understanding of available protections and a practical plan for seeking further support.",
+      "quote": "“I felt listened to and understood the options available to me.”",
+      "quoteAuthor": "Confidential Client",
+      "quoteAuthorDescription": "Client"
+    }
+  }
+]

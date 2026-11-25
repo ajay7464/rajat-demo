@@ -390,11 +390,13 @@ function pbmit_staticbox_hover() {
     });
 }
 
-function pbmit_portfolio_effect() {
-    const images = gsap.utils.toArray('.pbmit-portfolio-style-2');
-    if (images.length == 0) return
-    const images_inner = gsap.utils.toArray('.pbmit-portfolio-style-2 .pbmit-featured-wrapper');
+function pbmit_portfolio_effect(container = document) {
+    const images = Array.from(container.querySelectorAll('.pbmit-portfolio-style-2'))
+        .filter(img => !img.dataset.portfolioAnimated);
+    if (images.length === 0) return;
+
     images.forEach(img => {
+        img.dataset.portfolioAnimated = 'true';
         gsap.to(img, {
             scrollTrigger: {
                 trigger: img,
@@ -404,18 +406,21 @@ function pbmit_portfolio_effect() {
                 once: true,
             }
         });
+
+        const image = img.querySelector('.pbmit-featured-wrapper');
+        if (image) {
+            const timeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: image,
+                    start: "top 20%",
+                    end: "bottom bottom",
+                    scrub: 3
+                },
+            });
+            timeline.fromTo(image, { y: 0 }, { y: 40 });
+        }
     });
-    images_inner.forEach(img => {
-        let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: img,
-                start: "top 20%",
-                end: "bottom bottom",
-                scrub: 3
-            },
-        });
-        tl.fromTo(img, { y: 0 }, { y: 40 })
-    });
+    ScrollTrigger.refresh();
 }
 
 function pbmit_title_animation() {

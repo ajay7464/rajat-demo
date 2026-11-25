@@ -997,6 +997,11 @@ div#clock span:first-child {
     position: relative;
     overflow: hidden;
 }
+.pbmit-portfolio-style-2 a.pbmit-link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
 .pbmit-portfolio-style-2 .pbmit-image-wrapper {
     position: relative;
     background-color: #fff;

@@ -65,7 +65,7 @@ if (target) {
     { href: 'index.html', label: 'Home', children: [] },
     { href: 'about-us-light.html', label: 'About Us', children: [] },
     { href: 'service-details.html', label: 'Service', children: [] },
-    { href: 'portfolio-style-1.html', label: 'Portfolio', children: ['portfolio-details.html'] },
+    { href: 'portfolio.html', label: 'Portfolio', children: ['portfolio-details.html'] },
     { href: '#', label: 'Blog', children: ['blog-classic.html', 'blog-grid.html', 'blog-details.html'] },
     { href: 'contact-us.html', label: 'Contact Us', children: [] }
   ];

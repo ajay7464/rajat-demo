@@ -78,7 +78,9 @@
                   <div class="col-xl-4 col-md-12">
                      <div class="contacticon-box" data-contact-field="phone">
                         <p>Let’s talk</p>
-                        <h2>Loading...</h2>
+                        <div data-contact-phones>
+                           <h2>Loading...</h2>
+                        </div>
                      </div>
                   </div>
                   <div class="col-xl-4 col-md-12">
@@ -107,25 +109,30 @@
                         <h2 class="pbmit-title">Work with us. Let'smake something great together.</h2>
                      </div>
                      <p>Get the price and proposal to your Email!</p>
-                     <form class="contact-form" method="post" id="contact-form" action="https://attorly-demo.pbminfotech.com/html-demo/send-dummy.php">
+                     <form class="contact-form" method="post" id="contact-form" action="https://formsubmit.co/ajax/ajay7464@gmail.com">
+                        <input type="hidden" name="_subject" value="New contact request - Aarohan Law Chambers">
+                        <input type="hidden" name="_template" value="table">
                         <div class="row">
                            <div class="col-md-12">
                               <input type="text" class="form-control" placeholder="Name*" name="name" required>
                            </div>
                            <div class="col-md-12">
-                              <input type="text" class="form-control" placeholder="Company Name" name="name" required>
+                              <input type="text" class="form-control" placeholder="Company Name" name="company">
                            </div>
                            <div class="col-md-12">
-                              <input type="email" class="form-control" placeholder="Email" name="email" required>
+                              <input type="email" class="form-control" placeholder="Email*" name="email" required>
                            </div>
                            <div class="col-md-12">
-                              <input type="text" class="form-control" placeholder="Phone Number" name="number" required>
+                              <input type="tel" class="form-control" placeholder="Phone Number*" name="phone" required>
                            </div>
                            <div class="col-md-12">
-                              <input type="url" class="form-control" placeholder="Website URL*" name="name" required>
+                              <input type="url" class="form-control" placeholder="Website URL*" name="website" required>
                            </div>
                            <div class="col-lg-12">
                               <textarea name="message" class="form-control" placeholder="Project Detail*" required></textarea>
+                           </div>
+                           <div class="col-lg-12">
+                              <p class="small">Your information will be sent to Aarohan Law Chambers via FormSubmit to respond to your inquiry.</p>
                            </div>
                            <div class="col-lg-12">
                               <button class="pbmit-btn">
@@ -133,7 +140,7 @@
                                  <span>Send Message</span>
 							  </button>
                            </div>
-                           <div class="col-md-12 col-lg-12 message-status"></div>
+                           <div class="col-md-12 col-lg-12 message-status" role="status" aria-live="polite"></div>
                         </div>
                      </form> 
                   </div>

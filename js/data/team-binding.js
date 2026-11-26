@@ -120,7 +120,6 @@
     const detailImage = document.getElementById('teamDetailImage');
     const detailRole = document.getElementById('teamDetailRole');
     const detailSocials = document.getElementById('teamDetailSocials');
-
     if (detailImage) {
       detailImage.src = member.image;
       detailImage.alt = member.name;

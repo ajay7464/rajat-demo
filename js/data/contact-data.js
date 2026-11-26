@@ -20,14 +20,14 @@
       ? toArray(data.addresses || data.address)
       : fallbackData.addresses;
 
-    const phoneField = document.querySelector('[data-contact-field="phone"] h2');
+    const phoneField = document.querySelector('[data-contact-phones]');
     const emailField = document.querySelector('[data-contact-field="email"] h2');
     const addressField = document.querySelector('[data-contact-field="address"] h2');
 
     if (phoneField) {
       phoneField.innerHTML = phones
-        .map((phone) => `<a href="tel:${phone.replace(/[^+\d]/g, '')}">${phone}</a>`)
-        .join('<br>');
+        .map((phone) => `<h2><a href="tel:${phone.replace(/[^+\d]/g, '')}">${phone}</a></h2>`)
+        .join('');
     }
 
     if (emailField) {
